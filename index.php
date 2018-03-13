@@ -25,7 +25,8 @@ if ($inputManager->hasInputErrors()) {
 }
 
 echo 'Start recognition with options:' . "\n";
-var_dump($inputManager->getOptionList());
+print_r($inputManager->getOptionList());
+echo "\n";
 
 try {
     $resultList = $imageProcessor->process($inputManager->getFileUrl());
@@ -34,7 +35,8 @@ try {
 }
 
 echo 'Barcode recognition result' . "\n";
-var_dump($resultList);
+print_r($resultList);
+echo "\n";
 
 $sdk = new Sdk([
     'region'   => $inputManager->getAwsRegion(),
@@ -71,7 +73,7 @@ try {
     }
     $lambdaClient->execute($command);
 } catch (\Exception $e) {
-    echo $e->getMessage() . "\n" . $e->getTraceAsString();
+    echo $e->getMessage() . "\n" . $e->getTraceAsString() . "\n";
 }
 
 
