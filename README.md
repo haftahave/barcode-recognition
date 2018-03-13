@@ -1,4 +1,4 @@
-AWS Fargate container for barcode recognition
+Amazon ECS container for barcode recognition
 =======================
 
 **Build container:** `docker build -t [container-name] [path_to_sources]` \
