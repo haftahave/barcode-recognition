@@ -1,0 +1,23 @@
+{
+    "name": "haftahave/src",
+    "description": "Description goes here",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hafta Have",
+            "email": "apps@haftahave.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Hth\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.6",
+        "aws/aws-sdk-php": "^3.52.21"
+    }
+}

@@ -1,0 +1,8 @@
+/vendor/
+
+# Composer PHAR
+/composer.phar
+
+# OS and IDE specific
+.DS_Store
+.idea
