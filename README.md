@@ -7,13 +7,15 @@ _Example_: `docker build -t barcode-recognition .`
 **Run container:** `docker run [container-id] [arguments]` \
 _Example_: 
 ```
-docker run 8689b22ebbbd -e IMAGE_URL='https://s3-external-1.amazonaws.com/image/url/goes/here.jpg' \ 
-    FUNCTION_NAME='lambda_function_name' \
-    FUNCTION_QUALIFIER='production' \
-    FUNCTION_TRACE_ID='someId' \
-    AWS_REGION='us-west-2' \
-    AWS_KEY='some-key' \
-    AWS_SECRET='some-secret'
+docker run \
+ -e IMAGE_URL='https://s3-external-1.amazonaws.com/image/url/goes/here.jpg' \ 
+ -e FUNCTION_NAME='lambda_function_name' \
+ -e FUNCTION_QUALIFIER='production' \
+ -e FUNCTION_TRACE_ID='someId' \
+ -e AWS_REGION='us-west-2' \
+ -e AWS_KEY='some-key' \
+ -e AWS_SECRET='some-secret'
+ 8689b22ebbbd
 ```
 
 Where:

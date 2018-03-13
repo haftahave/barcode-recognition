@@ -26,5 +26,11 @@ RUN php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php')
 
 RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --no-dev --no-interaction --optimize-autoloader
 
-ENTRYPOINT [ "php", "./index.php", "${IMAGE_URL}", "${FUNCTION_NAME}", \
-  "${FUNCTION_QUALIFIER}", "${FUNCTION_TRACE_ID}", "${AWS_REGION}", "${AWS_KEY}", "${AWS_SECRET}" ]
+ENTRYPOINT php -f ./index.php \
+    IMAGE_URL=${IMAGE_URL} \
+    FUNCTION_NAME=${FUNCTION_NAME} \
+    FUNCTION_QUALIFIER=${FUNCTION_QUALIFIER} \
+    FUNCTION_TRACE_ID=${FUNCTION_TRACE_ID} \
+    AWS_REGION=${AWS_REGION} \
+    AWS_KEY=${AWS_KEY} \
+    AWS_SECRET=${AWS_SECRET}

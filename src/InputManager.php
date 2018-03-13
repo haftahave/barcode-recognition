@@ -49,7 +49,7 @@ class InputManager
         }
 
         foreach ($requiredArguments as $argumentName) {
-            if (!isset($this->optionsList[$argumentName])) {
+            if (empty($this->optionsList[$argumentName])) {
                 $this->errorList[] = sprintf('Parameter `%s` has been missed', $argumentName);
             }
         }
