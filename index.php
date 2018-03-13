@@ -30,6 +30,9 @@ try {
     $resultList = [];
 }
 
+echo 'Barcode recognition result' . "\n";
+var_dump($resultList);
+
 $sdk = new Sdk([
     'region'   => $inputManager->getAwsRegion(),
     'version'  => 'latest',
@@ -66,7 +69,6 @@ try {
     $lambdaClient->execute($command);
 } catch (\Exception $e) {
     echo $e->getMessage() . "\n" . $e->getTraceAsString();
-    var_dump($resultList);
     exit(1);
 }
 
