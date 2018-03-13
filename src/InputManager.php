@@ -7,13 +7,14 @@ namespace Hth;
  */
 class InputManager
 {
-    const PARAM_IMAGE_URL = 'IMAGE_URL';
+    const DEFAULT_PARAM_VALUE = '-';
+    const PARAM_AWS_KEY = 'AWS_KEY';
+    const PARAM_AWS_REGION = 'AWS_REGION';
+    const PARAM_AWS_SECRET = 'AWS_SECRET';
     const PARAM_FUNCTION_NAME = 'FUNCTION_NAME';
     const PARAM_FUNCTION_QUALIFIER = 'FUNCTION_QUALIFIER';
     const PARAM_FUNCTION_TRACE_ID = 'FUNCTION_TRACE_ID';
-    const PARAM_AWS_REGION = 'AWS_REGION';
-    const PARAM_AWS_KEY = 'AWS_KEY';
-    const PARAM_AWS_SECRET = 'AWS_SECRET';
+    const PARAM_IMAGE_URL = 'IMAGE_URL';
 
     /**
      * @var array
@@ -49,7 +50,9 @@ class InputManager
         }
 
         foreach ($requiredArguments as $argumentName) {
-            if (empty($this->optionsList[$argumentName])) {
+            if (empty($this->optionsList[$argumentName])
+                && $this->optionsList[$argumentName] ==! self::DEFAULT_PARAM_VALUE
+            ) {
                 $this->errorList[] = sprintf('Parameter `%s` has been missed', $argumentName);
             }
         }
