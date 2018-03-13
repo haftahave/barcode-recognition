@@ -21,7 +21,7 @@ $inputManager = new InputManager($argv);
 
 if ($inputManager->hasInputErrors()) {
     echo implode("\n", $inputManager->getErrorList()) . "\n";
-    exit(1);
+    exit(0);
 }
 
 echo 'Start recognition with options:' . "\n";
@@ -72,7 +72,6 @@ try {
     $lambdaClient->execute($command);
 } catch (\Exception $e) {
     echo $e->getMessage() . "\n" . $e->getTraceAsString();
-    exit(1);
 }
 
 
