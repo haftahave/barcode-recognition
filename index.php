@@ -24,6 +24,9 @@ if ($inputManager->hasInputErrors()) {
     exit(1);
 }
 
+echo 'Start recognition with options:' . "\n";
+var_dump($inputManager->getOptionList());
+
 try {
     $resultList = $imageProcessor->process($inputManager->getFileUrl());
 } catch (\Exception $e) {
